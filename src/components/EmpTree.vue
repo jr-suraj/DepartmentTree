@@ -35,26 +35,26 @@
 			</div>
 			
 			<template>
-				<panZoom :options="{minZoom: 0.4, maxZoom: 1, pinchSpeed: 1, smoothScroll: false}">
-					<nested-draggable class="org_tree" :tasks="list3"/>
-				</panZoom>
+				<!-- <panZoom :options="{minZoom: 0.4, maxZoom: 1, pinchSpeed: 1, smoothScroll: false}"> -->
+					<department class="dep_tree" :tasks="departments"/>
+				<!-- </panZoom> -->
 			</template>
 		</div>
-
+		<pre class="text-left">{{ departments | json }}</pre>
 		<!-- <rawDisplayer class="col-3" :value="list3" title="List" /> -->
 	</div>
 </template>
 
 <script>
 import draggable from "vuedraggable";
-import nestedDraggable from './Nested'
+import department from './Department'
 export default {
 	name: "nested-example",
 	display: "Nested",
 	order: 15,
 	components: {
 		draggable,
-		nestedDraggable,
+		department,
 	},
 	methods: {
 		add: function() {
@@ -127,27 +127,137 @@ export default {
 				},
 			],
 			
-			list3: [
+			departments: [
 				{
-					name: "Henry",
-					company: "Better Hr",
-					position: "position",
+					name: "Department 1",
 					avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
 					show: true,
+					employees: [
+						{ 
+							name: "Fergie",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "John",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "Jessie",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "Molly",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "Frank",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+					],
 					children: [
 						{
-						name: "Joker",
-						company: "Better Hr",
-						position: "position",
+						name: "Department 2",
 						avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
 						show: true,
+						employees: [],
 						children: [
 							{
-								name: "Maurice",
-								company: "Better Hr",
-								position: "position",
+								name: "Department 3",
 								avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
 								show: true,
+								employees: [],
+								children: []
+							}
+						]
+						},
+						{
+							name: "Department 10",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							employees: [],
+							children: [
+							]
+						}
+					]
+				},
+				{
+					name: "Department 4",
+					avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+					show: true,
+					employees: [
+						{ 
+							name: "Fergie",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "John",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "Jessie",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "Molly",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "Frank",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+					],
+					children: [
+						{
+						name: "Department 5",
+						avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+						show: true,
+						employees: [],
+						children: [
+							{
+								name: "Department 6",
+								avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+								show: true,
+								employees: [],
 								children: []
 							}
 						]
@@ -155,37 +265,35 @@ export default {
 					]
 				},
 				{
-					name: "Jones",
-					company: "Better Hr",
-					position: "position",
+					name: "Department 7",
 					avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
 					show: true,
-					children: [
-						{
-						name: "Ferdenand",
-						company: "Better Hr",
-						position: "position",
-						avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
-						show: true,
-						children: [
-							{
-								name: "Larry",
-								company: "Better Hr",
-								position: "position",
-								avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
-								show: true,
-								children: []
-							}
-						]
-						}
-					]
-				},
-				{
-					name: "Kennedy",
-					company: "Better Hr",
-					position: "position",
-					avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
-					show: true,
+					employees: [
+						{ 
+							name: "Fergie",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "Molly",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+						{ 
+							name: "Frank",
+							company: "Better Hr",
+							position: "position",
+							avatar: "https://api.adorable.io/avatars/285/abott@adorable.png",
+							show: true,
+							children: [] 
+						},
+					],
 					children: []
 				}
 			],
